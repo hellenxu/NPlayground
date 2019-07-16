@@ -1,3 +1,7 @@
+/*
+others will see module.exports, but cannot see exports through require(). 
+ */
+
 exports = {
     name: "exports: to iterate module paths", 
     method: function() {
