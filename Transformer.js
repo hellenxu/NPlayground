@@ -8,7 +8,8 @@ class Transformer {
     console.log(`xxl-countries: ${countries}`);
     console.log(`xxl-values: ${JSON.stringify(values)}`);
 
-    const result = {};
+    const result = [];
+    let bb = "";
     countries.forEach((country) => {
       const temp = values.filter((value) => {
           return value.country === country;
@@ -16,21 +17,26 @@ class Transformer {
           return value.city;
         }).join(', ');
       console.log(`xxl-tmp: ${temp}`);
-      result[country] = temp;
-    });
-
-    const secLevel = [];
-    let aa = "";
-    _.transform(result, function(result, value, key) {
-      if ( key !== 'AA') {
-        secLevel.push({[key]: value});
+      if (country !== 'AA') {
+        result.push({[country] : temp});
       } else {
-        aa = value;
+        bb = temp;
       }
     });
 
+    // solution one:
+    // const secLevel = [];
+    // let aa = "";
+    // _.transform(result, function(result, value, key) {
+    //   if ( key !== 'AA') {
+    //     secLevel.push({[key]: value});
+    //   } else {
+    //     aa = value;
+    //   }
+    // });
+
     console.log(`xxl-result: ${JSON.stringify(result)}`);
-    const transformed = {ua: aa, intt: secLevel};
+    const transformed = {ua: bb, intt: result};
     console.log(`xxl-transformed: ${JSON.stringify(transformed)}`)
   }
 }
