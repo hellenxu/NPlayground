@@ -20,17 +20,17 @@ class Transformer {
     });
 
     const secLevel = [];
-    let aa = {};
+    let aa = "";
     _.transform(result, function(result, value, key) {
       if ( key !== 'AA') {
         secLevel.push({[key]: value});
       } else {
-        aa = {[key]: value};
+        aa = value;
       }
     });
 
     console.log(`xxl-result: ${JSON.stringify(result)}`);
-    const transformed = {aa, secLevel};
+    const transformed = {ua: aa, intt: secLevel};
     console.log(`xxl-transformed: ${JSON.stringify(transformed)}`)
   }
 }
