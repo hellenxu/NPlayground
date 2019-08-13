@@ -10,8 +10,7 @@ class Transformer {
 
     const result = {};
     countries.forEach((country) => {
-      const temp =
-        values.filter((value) => {
+      const temp = values.filter((value) => {
           return value.country === country;
         }).map((value) => {
           return value.city;
@@ -20,7 +19,19 @@ class Transformer {
       result[country] = temp;
     });
 
+    const secLevel = [];
+    let aa = {};
+    _.transform(result, function(result, value, key) {
+      if ( key !== 'AA') {
+        secLevel.push({[key]: value});
+      } else {
+        aa = {[key]: value};
+      }
+    });
+
     console.log(`xxl-result: ${JSON.stringify(result)}`);
+    const transformed = {aa, secLevel};
+    console.log(`xxl-transformed: ${JSON.stringify(transformed)}`)
   }
 }
 
