@@ -40,3 +40,9 @@ exports.method:  { name: 'module.exports: to iterate module paths',
   method: [Function: method] }
 exports.exports:  undefined
  */
+
+const { Transformer } = require('./Transformer.js');
+
+const transformer = new Transformer();
+transformer.getCountries();
+

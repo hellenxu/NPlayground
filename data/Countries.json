@@ -1,0 +1,44 @@
+{
+  "data": {
+    "countries": {
+      "items": [
+        {
+          "city": "a00",
+          "country": "AA"
+        },
+        {
+          "city": "a11",
+          "country": "AA"
+        },
+        {
+          "city": "a22",
+          "country": "AA"
+        },
+        {
+          "city": "b00",
+          "country": "BB"
+        },
+        {
+          "city": "b11",
+          "country": "BB"
+        },
+        {
+          "city": "c00",
+          "country": "CC"
+        },
+        {
+          "city": "c11",
+          "country": "CC"
+        },
+        {
+          "city": "c22",
+          "country": "CC"
+        },
+        {
+          "city": "c33",
+          "country": "CC"
+        }
+      ]
+    }
+  }
+}
