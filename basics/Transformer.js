@@ -1,5 +1,5 @@
 const _ = require("lodash");
-const CountryResponse = require("./data/Countries");
+const CountryResponse = require("../data/Countries");
 
 class Transformer {
   getCountries() {
