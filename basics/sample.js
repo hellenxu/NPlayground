@@ -1,8 +1,7 @@
-
 // scope example
-const change = function (a) {
-    a = 100;
-    console.log(a)
+const change = function(a) {
+  a = 100;
+  console.log(a);
 };
 
 const a = 10;
@@ -11,9 +10,9 @@ console.log(a);
 
 // module.exports vs exports
 const module1 = {
-    exports: {
-        name: "module->exports attribute"
-    }
+  exports: {
+    name: "module->exports attribute"
+  }
 };
 
 exports = module1.exports;
@@ -26,7 +25,7 @@ module exports attribute:  { name: 'module->exports attribute' }
 module.exports:  { name: 'module->exports attribute' }
  */
 
-exports = require ('./module_path.js');
+exports = require("./module_path.js");
 
 console.log("module exports attribute: ", module1.exports);
 console.log("exports.method: ", exports);
@@ -41,8 +40,17 @@ exports.method:  { name: 'module.exports: to iterate module paths',
 exports.exports:  undefined
  */
 
-const { Transformer } = require('./Transformer.js');
+class sample {
+    constructor(transformer) {
+        this.transformer = transformer;
+    }
 
-const transformer = new Transformer();
-transformer.getCountries();
+  getCountries() {
+    this.transformer.getCountries();
+  }
+}
+
+module.exports = {
+    sample
+};
 
