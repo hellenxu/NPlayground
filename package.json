@@ -2,6 +2,7 @@
   "name": "NPlayground",
   "version": "1.0.0",
   "dependencies": {
+    "jest": "^24.8.0",
     "lodash": "^4.17.15"
   }
 }
