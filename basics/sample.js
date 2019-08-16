@@ -50,7 +50,5 @@ class sample {
   }
 }
 
-module.exports = {
-    sample
-};
+module.exports = sample;
 
