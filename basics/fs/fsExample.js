@@ -17,3 +17,13 @@ fs.open("../data/file003.txt", "w", function(err) {
   if (err) throw err;
   console.log(`Files created(open)...`);
 });
+
+// Delete files
+fs.open('../data/file004.txt', 'w', err => {
+  if (err) throw err;
+  console.log(`created file004.txt`);
+});
+fs.unlink("../data/file004.txt", err => {
+  if (err) throw err;
+  console.log(`File deleted..`);
+});
