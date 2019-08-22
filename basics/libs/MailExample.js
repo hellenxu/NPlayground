@@ -22,6 +22,13 @@ const multiReceiverMailOptions = {
   text: 'Test, Test, Test...'
 };
 
+const htmlMailOptions = {
+  from: 'xxx@gmail.com',
+  to: 'yyy9102@gmail.com',
+  subject: 'Test',
+  html: '<P>hei hei</P>'
+};
+
 // this example doesn't work for second factor login
 transporter.sendMail(normalMailOptions, (error, info) => {
   if (error) {
