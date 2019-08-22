@@ -25,7 +25,7 @@ module exports attribute:  { name: 'module->exports attribute' }
 module.exports:  { name: 'module->exports attribute' }
  */
 
-exports = require("./module_path.js");
+exports = require("./ModulePath.js");
 
 console.log("module exports attribute: ", module1.exports);
 console.log("exports.method: ", exports);

@@ -1,4 +1,4 @@
-const Sample = require("../sample");
+const Sample = require("../Sample");
 
 describe("sample unit tests", () => {
   it("#getCountries fetch data properly", () => {
