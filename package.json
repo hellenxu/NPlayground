@@ -2,6 +2,7 @@
   "name": "NPlayground",
   "version": "1.0.0",
   "dependencies": {
+    "formidable": "^1.2.1",
     "lodash": "^4.17.15"
   },
   "devDependencies": {
