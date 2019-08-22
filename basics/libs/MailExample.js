@@ -8,15 +8,22 @@ const transporter = mailer.createTransport({
   }
 });
 
-const mailOptions = {
+const normalMailOptions = {
   from: 'xxx@gmail.com',
   to: 'yyy9102@gmail.com',
   subject: 'Email Test',
   text: 'Test for sure.'
 };
 
+const multiReceiverMailOptions = {
+  from: 'xxx@gmail.com',
+  to: 'yyy9102@gmail.com, ccc9102@gmail.com',
+  subject: 'Test',
+  text: 'Test, Test, Test...'
+};
+
 // this example doesn't work for second factor login
-transporter.sendMail(mailOptions, (error, info) => {
+transporter.sendMail(normalMailOptions, (error, info) => {
   if (error) {
     console.log(`xxl-error: ${error}`);
   } else {
