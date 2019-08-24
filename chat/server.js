@@ -23,14 +23,16 @@ function serveStatic(res, cache, absPath) {
   } else {
     fs.access(absPath, (err) => {
       if (err) send404(res);
-      fs.readFile(absPath, (err1, data) => {
-        if (err1) {
-          send404(res);
-        } else {
-          cache[absPath] = data;
-          sendFile(res, absPath, data);
-        }
-      });
+      else {
+        fs.readFile(absPath, (err1, data) => {
+          if (err1) {
+            send404(res);
+          } else {
+            cache[absPath] = data;
+            sendFile(res, absPath, data);
+          }
+        });
+      }
     });
   }
 }
