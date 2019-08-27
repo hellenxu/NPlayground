@@ -54,3 +54,6 @@ const server = http.createServer((req, res) => {
 server.listen(4008, () => {
   console.log(`Server is listening on port 4008`);
 });
+
+const chatServer = require('./lib/chat_server');
+chatServer.listen(server);
