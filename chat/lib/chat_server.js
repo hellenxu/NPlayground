@@ -95,7 +95,10 @@ function handleNameChangeAttempts(socket, nickNames, namesUsed) {
 }
 
 function handleRoomJoining(socket) {
-
+  socket.on('join', function(room) {
+    socket.leave(currentRoom[socket.id]);
+    joinRoom(socket, room.newRoom);
+  });
 }
 
 function handleClientDisconnection(socket, nickNames, namesUsed) {
