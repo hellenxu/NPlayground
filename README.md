@@ -18,3 +18,17 @@ As a result, if `exports` is set to anything else, it breaks the reference betwe
 module.exports = exports = Currency;
 ```
 Beside from that, `exports` is inaccessible from outside, please see examples in [Sample.js](./basics/Sample.js)
+
+#### No.3 Flow of finding a module
+
+Steps of finding a module with node_modules:
+![Steps of finding a module](./imgs/20190828_flow_of_finding_modules.png)
+
+
+How `package.json` defines a module:
+![package_define_modules](./imgs/20190828_how_package_define_a_module.png)
+
+First, if a module is a directory, the file in the module directory that will be evaluated must be named `index.js`, unless specified otherwise by a file in the module directory named `package.json`.
+
+The other thing to be aware of is Node's ability to cache modules as objects. If two files in an applciation require the same module, the first require will store the data returned in application memory so the second require won't need to access and evaluate the module's source files.
+
