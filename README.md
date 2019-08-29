@@ -17,3 +17,4 @@ As a result, if `exports` is set to anything else, it breaks the reference betwe
 ```javascript
 module.exports = exports = Currency;
 ```
+Beside from that, `exports` is inaccessible from outside, please see examples in [Sample.js](./basics/Sample.js)
