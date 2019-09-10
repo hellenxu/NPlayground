@@ -26,7 +26,12 @@ channel.on('join', (id, client) => {
       this.clients[id].write(message);
     }
   };
-  this.on('broadcast', this.subscriptions[id])
+  this.on('broadcast', this.subscriptions[id]);
+});
+
+channel.on('leave', (id) => {
+  channel.removeListener('broadcast', this.subscriptions[id]);
+  channel.emit('broadcast', id, id + ' has left the chat. \n');
 });
 
 const server = net.createServer((client) => {
@@ -38,6 +43,9 @@ const server = net.createServer((client) => {
     data = data.toString();
     channel.emit('broadcast', id, data);
   });
+  client.on('close', () => {
+    channel.emit('leave', id)
+  })
 });
 
 server.listen(4008);
