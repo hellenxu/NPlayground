@@ -27,6 +27,14 @@ class FileWatcher extends events.EventEmitter{
     });
   }
 
+  process(file) {
+    const watchFile = `${this.watchDir}/${file}`;
+    const processedFile = `${this.processedDir}/${file.toLowerCase()}`;
+    fs.rename(watchFile, processedFile, (err) => {
+      if (err) throw err;
+    });
+  }
+
 }
 
 // old way to inherit another object's behaviors
