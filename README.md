@@ -1,5 +1,11 @@
 # NPlayground
 
+### 20190910
+***
+#### No.1 something about Node's event loop
+Node's event loop keeps track of asynchronous logic that hasn't completed processing. As long as there's uncompleted asynchronous logic, the Node process won't exit.
+
+
 ### 20190828
 ***
 #### No.1 A note about require and synchronous I/O
