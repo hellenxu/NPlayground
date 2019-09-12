@@ -1,5 +1,14 @@
 # NPlayground
 
+### 20190911
+***
+#### No.1 flow control
+The concept of sequencing groups of asynchronous tasks is called flow control. There are two types of flow control: serial and parallel.
+
+Tasks that need to happen one after the other are called serial. 
+
+Tasks that don't need to happen one after the other are called parallel. 
+
 ### 20190910
 ***
 #### No.1 something about Node's event loop
