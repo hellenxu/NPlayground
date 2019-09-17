@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+<channel>
+<title>Example</title><link>http://lambda-the-ultimate.org/node/4306</link><description>Of Course ML Has Monads!</description> </channel></rss>
