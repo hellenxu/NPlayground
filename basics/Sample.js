@@ -94,6 +94,8 @@ const objC = _.clone(objA);
 console.log(`xxl-B-is-A: ${objB === objA}; C-is-A: ${objC === objA}`);
 console.log(`xxl-A: ${JSON.stringify(objA)}; B: ${JSON.stringify(objB)}; C: ${JSON.stringify(objC)}`);
 
+// _.random
+console.log(`xxl-random: ${_.random(10, 20, true)}`);
 
 class sample {
   constructor(transformer) {
