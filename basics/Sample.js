@@ -87,6 +87,14 @@ const result =
   });
 console.log(`xxl-map: ${JSON.stringify(result)}`);
 
+// _.cloneDeep vs. _.clone???
+const objA = { id: '23456789'};
+const objB = _.cloneDeep(objA);
+const objC = _.clone(objA);
+console.log(`xxl-B-is-A: ${objB === objA}; C-is-A: ${objC === objA}`);
+console.log(`xxl-A: ${JSON.stringify(objA)}; B: ${JSON.stringify(objB)}; C: ${JSON.stringify(objC)}`);
+
+
 class sample {
   constructor(transformer) {
     this.transformer = transformer;
