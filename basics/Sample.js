@@ -1,4 +1,4 @@
-const _ = require('lodash');
+const _ = require("lodash");
 
 // scope example
 const change = function(a) {
@@ -49,19 +49,48 @@ const groups = [
   { id: "1250", groupId: 33, companyId: 5, name: "test6" }
 ];
 
-const groupResult = _.orderBy(_.groupBy(groups, 'groupId'), 'companyId');
+const groupResult = _.orderBy(_.groupBy(groups, "groupId"), "companyId");
 _.forEach(groupResult, (item) => {
-  console.log(`xxl-item: ${JSON.stringify(item)}`)
+  console.log(`xxl-item: ${JSON.stringify(item)}`);
 });
 
+// can replace with _.forEach
 _.times(groups.length, (index) => {
-  console.log(`xxl-times: ${JSON.stringify(groups[index])}`)
+  console.log(`xxl-times: ${JSON.stringify(groups[index])}`);
 });
+
+// _.map
+const meterArray = [
+  {
+    meterByZone: {
+      zone: "aa",
+      meters: { type: "test1", amount: 100 }
+    },
+    meterByTime: {
+      zone: "bb",
+      meters: { type: "test2", amount: 100 }
+    }
+  },
+  {
+    meterByZone: {
+      zone: "aa1",
+      meters: { type: "test3", amount: 100 }
+    },
+    meterByTime: {
+      zone: "bb1",
+      meters: { type: "test4", amount: 100 }
+    }
+  }];
+const result =
+  _.map(meterArray, (info) => {
+    return info.meterByZone.meters.type;
+  });
+console.log(`xxl-map: ${JSON.stringify(result)}`);
 
 class sample {
-    constructor(transformer) {
-        this.transformer = transformer;
-    }
+  constructor(transformer) {
+    this.transformer = transformer;
+  }
 
   getCountries() {
     this.transformer.getCountries();
