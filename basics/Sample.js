@@ -54,6 +54,10 @@ _.forEach(groupResult, (item) => {
   console.log(`xxl-item: ${JSON.stringify(item)}`)
 });
 
+_.times(groups.length, (index) => {
+  console.log(`xxl-times: ${JSON.stringify(groups[index])}`)
+});
+
 class sample {
     constructor(transformer) {
         this.transformer = transformer;
