@@ -97,6 +97,9 @@ console.log(`xxl-A: ${JSON.stringify(objA)}; B: ${JSON.stringify(objB)}; C: ${JS
 // _.random
 console.log(`xxl-random: ${_.random(10, 20, true)}`);
 
+// _.isEmpty
+console.log(`xxl-isEmpty: ${_.isEmpty(objA)}`);
+
 class sample {
   constructor(transformer) {
     this.transformer = transformer;
