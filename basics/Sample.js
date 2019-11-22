@@ -101,7 +101,7 @@ console.log(`xxl-random: ${_.random(10, 20, true)}`);
 console.log(`xxl-isEmpty: ${_.isEmpty(objA)}`);
 
 // _.find : it seems this operator cannot do nested search
-const data = [{id: '111', name: 'test1', age: 10, active: true}, {id: '122', name: 'test2', age: 30, active: false}];
+const data = [{id: '111', name: 'test1', age: 10, active: true}, {id: '122', name: 'test2', age: 30, active: false}, {id: '111', name: 'test1', age: 10, active: true}];
 const searchResult = _.find(meterArray, ({ meters: { type: "test2", amount: 100 } }));
 console.log(`xxl-find00: ${JSON.stringify(searchResult)}`);
 const searchResult0 = _.find(meterArray, ['type', "test2"]);
@@ -112,6 +112,10 @@ console.log(`xxl-find33: ${JSON.stringify(_.find(data, ['age', 30]))}`);
 // _.filter
 console.log(`xxl-filter00: ${JSON.stringify(_.filter(data, 'active'))}`);
 console.log(`xxl-filter11: ${JSON.stringify(_.filter(data, (item) => { return item.age > 10}))}`);
+
+// _.uniq: it seems uniq only applies to primitive classes because objects with the same value have different references
+console.log(`xxl-uniq00: ${JSON.stringify(_.uniq(data))}`);
+console.log(`xxl-uniq11: ${JSON.stringify(_.uniq([12, 10, 10, 30, false, false, '112', '112', objA, objB]))}`);
 
 class sample {
   constructor(transformer) {
