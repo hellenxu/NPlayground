@@ -108,6 +108,8 @@ const searchResult0 = _.find(meterArray, ['type', "test2"]);
 console.log(`xxl-find11: ${JSON.stringify(JSON.stringify(searchResult0))}`);
 console.log(`xxl-find22: ${JSON.stringify(_.find(data, {id: '111', name: 'test1', age: 10}))}`);
 console.log(`xxl-find33: ${JSON.stringify(_.find(data, ['age', 30]))}`);
+const data2 = [[{'1122': 0}, {'234': 0}]];
+console.log(`xxl-find44: ${JSON.stringify(_.find(data2, (item) => { return item === [{'1122': 0}, {'234': 0}] }))}`);
 
 // _.filter
 console.log(`xxl-filter00: ${JSON.stringify(_.filter(data, 'active'))}`);
