@@ -16,6 +16,16 @@
 
 `Node's core APIs are always lightweight and low-level. This leaves opinions, syntactic sugar, and specific details up to the community modules.`
 
+#### No.2 How Node presents incoming HTTP requests to developers
+Node will parse the request up through the HTTP headers and provide them as part of the req object. But Node doesn't start parsing the body of the request until the callback has been fired. This is different from some server-side frameworks, like PHP, where both the headers and the body of the request are parsed before your application logic runs.
+
+After the request callback is triggered, it's your responsibility to end the response using the res.end() method.
+
+#### No.3 HTTP request
+
+![Lifecyle of an HTTP request](./imgs/20191125_lifecyle_of_an_http_request.png)
+
+
 ### 20190911
 ***
 #### No.1 flow control
