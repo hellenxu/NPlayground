@@ -1,5 +1,14 @@
 # NPlayground
 
+### 20191125
+***
+#### No.1 layers of a Node Web Application
+---- layer 3: Application logic (http.createServer(), app.use()) + Route handlers, Directory structures, Business algorithms
+
+---- layer 2: Community modules (e.g. express, mongoose, etc.) + db drivers, Middleware, Routing
+
+---- layer 1: Node core (e.g. querystring, http, net) + Low-level HTTP parser, Low-level TCP server
+
 ### 20190911
 ***
 #### No.1 flow control
