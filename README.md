@@ -2,12 +2,19 @@
 
 ### 20191125
 ***
-#### No.1 layers of a Node Web Application
+#### No.1 anatomy of a Node Web Application
 ---- layer 3: Application logic (http.createServer(), app.use()) + Route handlers, Directory structures, Business algorithms
+
+`The application logic layer is where your app is implemented. The size of this layer depends on the number of community modules used and the complexity of the application.`
 
 ---- layer 2: Community modules (e.g. express, mongoose, etc.) + db drivers, Middleware, Routing
 
+`Community moduels are where Node thrives. Community members take the low-level core APIs and create fun and easy-touse modules that allow you to get tasks done easily.`
+
+
 ---- layer 1: Node core (e.g. querystring, http, net) + Low-level HTTP parser, Low-level TCP server
+
+`Node's core APIs are always lightweight and low-level. This leaves opinions, syntactic sugar, and specific details up to the community modules.`
 
 ### 20190911
 ***
