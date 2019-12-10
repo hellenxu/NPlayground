@@ -86,6 +86,11 @@ const result =
     return info.meterByZone.meters.type;
   });
 console.log(`xxl-map: ${JSON.stringify(result)}`);
+const raw = {"code": 10, "con": {"unit": "rm", "usage": {"1222": 10, "1333": 20}}};
+const output = _.map(raw, (input) => {
+  return input.con.usage[1222]
+});
+console.log(`xxl-map00: ${JSON.stringify(output)}`);
 
 // _.cloneDeep vs. _.clone???
 const objA = { id: '23456789'};
