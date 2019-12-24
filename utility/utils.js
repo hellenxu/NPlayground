@@ -1,4 +1,4 @@
-const _ = require('lodash');
+const _ = require("lodash");
 
 const merge = (output, ...input) => {
   return _.mergeWith(output, ...input, (outValue, inValue) => {

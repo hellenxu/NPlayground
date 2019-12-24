@@ -1,11 +1,14 @@
 const request = require("request");
-const _ = require('lodash');
+/**
+ * jest cannot find other files error:
+ * it's because the path is incorrect. file path
+ * should be the whole path from root dir. for example,
+ * the root dir of this project is NPlayground, so in order to
+ * find utils.js, the correct path should be ../utility/utils,
+ * not /utility/utils.
+ */
+const { merge } = require('../utility/utils');
 const httpOpts = { simple: true, json: true };
-const merge = (output, ...input) => {
-  return _.mergeWith(output, ...input, (outValue, inValue) => {
-    return _.isBuffer(inValue) ? inValue : undefined
-  })
-};
 
 class RequestApi {
   getStates(auth, token, phoneNum) {
