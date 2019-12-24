@@ -5,16 +5,16 @@ const phoneNum = '095445677';
 
 describe("unit tests of RequestApi", () => {
   it("#getStates: called with specific url and headers", () => {
-    const api = RequestApi();
-    const requestSpy = jest.spyOn(api, "get")
-      .mockImplemetation(() => {
-        return {};
+    const api = new RequestApi();
+    const getSpy = jest.spyOn(api, 'get')
+      .mockImplementation(() => {
+        return {}
       });
 
     api.getStates(auth, token, phoneNum);
 
     const expectedUrl = `/api/v2/wls/account/${phoneNum}/states`;
     const expectedHeaders = {"session-token": token, authorization: auth};
-    expect(requestSpy).toBeCalledWith(expectedUrl, expectedHeaders);
+    expect(getSpy).toBeCalledWith(expectedUrl, expectedHeaders);
   });
 });

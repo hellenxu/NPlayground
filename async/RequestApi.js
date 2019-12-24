@@ -1,7 +1,11 @@
 const request = require("request");
-const { merge } = require('utils/utility.js');
+const _ = require('lodash');
 const httpOpts = { simple: true, json: true };
-
+const merge = (output, ...input) => {
+  return _.mergeWith(output, ...input, (outValue, inValue) => {
+    return _.isBuffer(inValue) ? inValue : undefined
+  })
+};
 
 class RequestApi {
   getStates(auth, token, phoneNum) {
