@@ -1,4 +1,5 @@
-const request = require("request");
+const request = require("request-promise");
+const _ = require('lodash');
 /**
  * jest cannot find other files error:
  * it's because the path is incorrect. file path
@@ -9,15 +10,25 @@ const request = require("request");
  */
 const { merge } = require('../utility/utils');
 const httpOpts = { simple: true, json: true };
+const apiVersion = 'v2';
 
 class RequestApi {
   getStates(auth, token, phoneNum) {
-    const url = `/api/v2/wls/account/${phoneNum}/states`;
+    const url = `/api/${apiVersion}/wls/account/${phoneNum}/states`;
     const headers = {
       "session-token": token,
       authorization: auth
     };
     return this.get(url, headers);
+  }
+
+  getData(token, auth, phoneNumList) {
+    const dataPromises = [];
+    _.forEach(phoneNumList, (phoneNumber) => {
+      const url = `/api/${apiVersion}/wls/account/${phoneNumber}/data`;
+      dataPromises.push(this.get(url, { 'session-token': token, auth }))
+    });
+    return dataPromises
   }
 
   get(url, headers) {
