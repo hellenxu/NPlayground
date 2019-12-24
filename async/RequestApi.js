@@ -31,6 +31,15 @@ class RequestApi {
     return dataPromises
   }
 
+  getDataDetails(token, auth, phoneNumList) {
+    const phoneNum = phoneNumList[0];
+    const url = `/api/${apiVersion}/wls/account/${phoneNum}/details`;
+    return this.get(url, { 'session-token': token, auth })
+      .then((response) => {
+        return { phoneNum, details: response }
+      })
+  }
+
   get(url, headers) {
     return this._request('GET', url, headers);
   }
