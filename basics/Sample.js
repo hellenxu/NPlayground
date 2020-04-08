@@ -1,5 +1,24 @@
 const _ = require("lodash");
 
+let base = "AAAA";
+const result00 = [];
+result00.push(
+  {
+    a: 11,
+    base
+  }
+);
+base = "BBBB";
+result00.push(
+  {
+    b: 12,
+    base
+  }
+);
+result00.forEach((item) => {
+  console.log(`xxl-result000: ${JSON.stringify(item)}`)
+});
+
 // scope example
 const change = function(a) {
   a = 100;
