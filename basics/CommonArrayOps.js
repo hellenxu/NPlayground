@@ -9,3 +9,11 @@ const result = objArr2.filter(function(v) {
   return objArr1.some(n => JSON.stringify(n) === JSON.stringify(v))
 });
 console.log(`object array intersection result: ${JSON.stringify(result)}`);
+
+// difference
+const diff = arr1.filter(item => !new Set(arr2).has(item));
+console.log(`difference: ${diff}`);
+const objDiff = objArr2.filter(function(v) {
+  return objArr1.every(n => JSON.stringify(n) !== JSON.stringify(v));
+});
+console.log(`obj difference: ${JSON.stringify(objDiff)}`);
