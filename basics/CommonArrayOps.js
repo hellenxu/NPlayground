@@ -17,3 +17,14 @@ const objDiff = objArr2.filter(function(v) {
   return objArr1.every(n => JSON.stringify(n) !== JSON.stringify(v));
 });
 console.log(`obj difference: ${JSON.stringify(objDiff)}`);
+
+// remove duplicates
+console.log(`after: ${Array.from(new Set(arr1.concat(arr2)))}`);
+
+const input = objArr1.concat(objArr2);
+const objRemoveDuplicate = [];
+input.forEach(item => {
+  !objRemoveDuplicate.some(v => JSON.stringify(v) === JSON.stringify(item)) && objRemoveDuplicate.push(item)
+});
+console.log(`object remove duplciates - input: ${JSON.stringify(input)}`);
+console.log(`obj remove duplicates: ${JSON.stringify(objRemoveDuplicate)}`);
