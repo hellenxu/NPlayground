@@ -71,3 +71,8 @@ console.log(`input before = `, objArr2);
 const result6 = _.orderBy(objArr2, ['id'], ['desc']);
 console.log(`result6 = `, result6);
 console.log(`input after = `, objArr2);
+
+// max
+console.log(`==== Max =====`);
+console.log(Math.max(...[3, 4, 2, 5]));
+console.log([1, 3, 5, 0].reduce((pre, cur, curIndex, arr) => Math.max(pre, cur), 0)); // 0 is initial value
