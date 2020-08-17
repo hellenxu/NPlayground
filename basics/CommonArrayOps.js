@@ -49,3 +49,12 @@ const result2 = objArr2.sort((a, b) => {
   return b.id - a.id
 });
 console.log(`result2 = `, result2);
+
+// sorting: interesting results
+console.log(`==========`);
+console.log(`input before = `, objArr2);
+const result3 = objArr2.sort((a, b) => a.id - b.id);
+const result4 = objArr2.sort((a, b) => b.id - a.id);
+console.log(`input after = `, objArr2);
+console.log("result3 = ", result3);
+console.log("result4 = ", result4);
