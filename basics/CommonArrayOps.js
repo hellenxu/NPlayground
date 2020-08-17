@@ -36,21 +36,21 @@ console.log([1, 2, 3, 3, 4].sort((a, b) => b - a));
 
 // sorting: object array, based on values of object
 console.log(`input: `, objArr2);
+const result2 = objArr2.sort((a, b) => {
+  // console.log(a, b);
+  return b.id - a.id
+});
+console.log(`result2 = `, result2);
+console.log(`==========`);
+console.log(`input: `, objArr2);
 const result1 = objArr2.sort((a, b) => {
     // console.log(a, b);
     return a.id - b.id;
   }
 );
 console.log("result1 = ", result1);
-console.log(`==========`);
-console.log(`input: `, objArr2);
-const result2 = objArr2.sort((a, b) => {
-  // console.log(a, b);
-  return b.id - a.id
-});
-console.log(`result2 = `, result2);
 
-// sorting: interesting results
+// sorting: interesting results [objArr2 will be changed after calling sorting]
 console.log(`==========`);
 console.log(`input before = `, objArr2);
 const result3 = objArr2.sort((a, b) => a.id - b.id);
