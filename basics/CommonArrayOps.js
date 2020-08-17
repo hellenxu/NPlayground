@@ -28,3 +28,8 @@ input.forEach(item => {
 });
 console.log(`object remove duplciates - input: ${JSON.stringify(input)}`);
 console.log(`obj remove duplicates: ${JSON.stringify(objRemoveDuplicate)}`);
+
+// sorting: compared function a - b <= 0 --> no position switch; a - b > 0 --> switching position
+console.log([5, 2, 3, 4].sort((a, b) => a - b));
+console.log([1, 2, 3, 4].sort((a, b) => b - a));
+console.log([1, 2, 3, 3, 4].sort((a, b) => b - a));
