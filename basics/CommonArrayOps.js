@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 // intersection
 const arr1 = [1, 2, 3, 4, 5, 8, 9], arr2 = [5, 6, 7, 8, 9];
 const intersection = arr1.filter(function(val) { return arr2.indexOf(val) > -1 });
@@ -58,3 +60,14 @@ const result4 = objArr2.sort((a, b) => b.id - a.id);
 console.log(`input after = `, objArr2);
 console.log("result3 = ", result3);
 console.log("result4 = ", result4);
+
+// sorting: use lodash
+console.log(`==========`);
+console.log(`input before = `, objArr2);
+const result5 = _.orderBy(objArr2, ['id'], ['asc']);
+console.log(`result5 = `, result5);
+console.log(`input after = `, objArr2);
+console.log(`input before = `, objArr2);
+const result6 = _.orderBy(objArr2, ['id'], ['desc']);
+console.log(`result6 = `, result6);
+console.log(`input after = `, objArr2);
