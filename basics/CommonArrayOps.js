@@ -86,3 +86,11 @@ console.log("sum of [1, 2, 3, 5, 10] is ", sumRes);
 
 const sumObjArr = objArr2.reduce((pre, cur) => pre + cur.id, 0);
 console.log("sum of id in array ", objArr2, sumObjArr);
+
+// merging arrays
+const mergRe1 = [1, 2, 3, 5, 7].concat([5, 6]) // wouldn't remove duplicates
+console.log(mergRe1)
+const mergRe2 = [...[1, 2, 3, 5, 7], ...[5, 6]]
+console.log(mergRe2)
+const mergRe3 = [].concat.apply([1, 2, 3, 5, 7], [5, 6])
+console.log(mergRe3)
