@@ -109,3 +109,7 @@ console.log(objArr2.includes({ name: 'name1', id: 1})); // wrong way to check
 // every
 console.log([1, 2, 3, 5, 7].every((item) => item > 3 )); // false
 console.log(objArr2.every((item) => item.id > 0)); // true
+
+// some
+console.log([1, 2, 3, 5, 7].some((item) => item > 3 )); // true
+console.log(objArr2.some((item) => item.id > 10)); // false
