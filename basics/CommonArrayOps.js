@@ -79,3 +79,10 @@ console.log([1, 3, 5, 0].reduce((pre, cur, curIndex, arr) => Math.max(pre, cur),
 
 const maxResult = Math.max.apply(Math, objArr2.map(item => item.id));
 console.log(maxResult);
+
+// sum of array
+const sumRes = [1, 2, 3, 5, 10].reduce((pre, cur) => pre + cur, 0);
+console.log("sum of [1, 2, 3, 5, 10] is ", sumRes);
+
+const sumObjArr = objArr2.reduce((pre, cur) => pre + cur.id, 0);
+console.log("sum of id in array ", objArr2, sumObjArr);
