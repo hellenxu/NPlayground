@@ -76,3 +76,6 @@ console.log(`input after = `, objArr2);
 console.log(`==== Max =====`);
 console.log(Math.max(...[3, 4, 2, 5]));
 console.log([1, 3, 5, 0].reduce((pre, cur, curIndex, arr) => Math.max(pre, cur), 0)); // 0 is initial value
+
+const maxResult = Math.max.apply(Math, objArr2.map(item => item.id));
+console.log(maxResult);
