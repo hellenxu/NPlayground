@@ -105,3 +105,7 @@ console.log([1, 2, 3, 5, 7].findIndex((item) => item === 2));
 console.log(objArr2.some((item) => JSON.stringify(item) === JSON.stringify({ name: 'name1', id: 1})));
 console.log(objArr2.some((item) => item === { name: 'name1', id: 1})); // wrong way to check
 console.log(objArr2.includes({ name: 'name1', id: 1})); // wrong way to check
+
+// every
+console.log([1, 2, 3, 5, 7].every((item) => item > 3 )); // false
+console.log(objArr2.every((item) => item.id > 0)); // true
