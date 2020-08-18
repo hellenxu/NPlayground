@@ -113,3 +113,10 @@ console.log(objArr2.every((item) => item.id > 0)); // true
 // some
 console.log([1, 2, 3, 5, 7].some((item) => item > 3 )); // true
 console.log(objArr2.some((item) => item.id > 10)); // false
+
+// object to arrays
+console.log('=== object to arrays ===')
+console.log('keys: ', Object.keys(objArr2));
+console.log('values: ', Object.values(objArr2));
+console.log('entries: ', Object.entries(objArr2));
+
