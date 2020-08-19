@@ -135,3 +135,11 @@ console.log(`elements:`, arr[0], arr[1]);
 [arr[1], arr[0]] = [arr[0], arr[1]];
 console.log(`after: `, arr);
 console.log(`elements:`, arr[0], arr[1]);
+
+// object variables
+const flag = false
+const obj = {
+  v1: 10,
+  [flag ? 'c' : 'b']: 0
+}
+console.log("xxl-obj: ", obj);
