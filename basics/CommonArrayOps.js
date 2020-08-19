@@ -155,3 +155,7 @@ console.log(`xxl-tag:`, tag);
 // object deconstruction: property alias
 const {age: userAge} = {name: 'test', age: 3, id: 100987, description: 'test account'};
 console.log(`xxl-alias: `, userAge);
+
+// object deconstruction: property default value
+const {des = 'default value'} = {name: 'test', age: 3, id: 100987, description: 'test account'};
+console.log(`xxl-property-default-value:`, des);
