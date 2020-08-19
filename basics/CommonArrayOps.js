@@ -141,5 +141,9 @@ const flag = false
 const obj = {
   v1: 10,
   [flag ? 'c' : 'b']: 0
-}
+};
 console.log("xxl-obj: ", obj);
+
+// object deconstruction, not use all variables
+const {name, id, ...others} = {name: 'test', age: 3, id: 100987, description: 'test account'};
+console.log(`xxl-obj-deconstruction:`, name, id);
