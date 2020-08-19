@@ -147,3 +147,7 @@ console.log("xxl-obj: ", obj);
 // object deconstruction, not use all variables
 const {name, id, ...others} = {name: 'test', age: 3, id: 100987, description: 'test account'};
 console.log(`xxl-obj-deconstruction:`, name, id);
+
+// object nested property
+const { info: { tag }} = {name: 'test', age: 3, id: 100987, info: {tag:'test account'}};
+console.log(`xxl-tag:`, tag);
