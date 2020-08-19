@@ -127,3 +127,11 @@ const objs = names.map((item, index) => {
   return { name: item, id: ids[index] };
 });
 console.log(`xxl-objs: ${JSON.stringify(objs)}`);
+
+// array deconstruction
+const arr = [1, 10];
+console.log(`before: `, arr);
+console.log(`elements:`, arr[0], arr[1]);
+[arr[1], arr[0]] = [arr[0], arr[1]];
+console.log(`after: `, arr);
+console.log(`elements:`, arr[0], arr[1]);
