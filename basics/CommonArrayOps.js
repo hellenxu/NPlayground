@@ -120,3 +120,10 @@ console.log('keys: ', Object.keys(objArr2));
 console.log('values: ', Object.values(objArr2));
 console.log('entries: ', Object.entries(objArr2));
 
+// arrays to object
+const names = ['test1', 'test2', 'test3']
+const ids = [10, 8, 7, 6]
+const objs = names.map((item, index) => {
+  return { name: item, id: ids[index] };
+});
+console.log(`xxl-objs: ${JSON.stringify(objs)}`);
