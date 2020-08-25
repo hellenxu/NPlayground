@@ -35,3 +35,4 @@ for( let item of flatten(arr)) {
   result.push(item);
 }
 console.log(result);
+// output: [ 1, 3, 5, 0, 9, 10, 22, 6 ]
