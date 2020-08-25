@@ -159,3 +159,44 @@ console.log(`xxl-alias: `, userAge);
 // object deconstruction: property default value
 const {des = 'default value'} = {name: 'test', age: 3, id: 100987, description: 'test account'};
 console.log(`xxl-property-default-value:`, des);
+
+// object define property
+const objDefine = { name: '', age: '', sex: '' }, defaultName = ['default name', 'default age', 'default sex'];
+const keys = Object.keys(objDefine);
+Object.keys(objDefine).forEach(key => {
+  Object.defineProperty(objDefine, key, {
+    get() {
+      const index = keys.indexOf(key);
+      return defaultName[index];
+    },
+    set(value) {
+      const index = keys.indexOf(key);
+      defaultName[index] = value;
+    }
+  });
+});
+console.log("=== before setting values ===")
+console.log(objDefine.name);
+console.log(objDefine.age);
+console.log(objDefine.sex);
+objDefine.name = 'changed value';
+console.log("=== after setting values ===")
+console.log(objDefine.name);
+console.log(objDefine.age);
+console.log(objDefine.sex);
+
+const objDefineTwo = {};
+let defaultNameValue = 'defaultName';
+Object.defineProperty(objDefineTwo, 'name', {
+  get() {
+    return defaultNameValue;
+  },
+  set(value) {
+    defaultNameValue = value;
+  }
+});
+console.log('=== before ===');
+console.log(objDefineTwo.name);
+objDefineTwo.name = 'changed name value';
+console.log('=== after ===');
+console.log(objDefineTwo.name);
