@@ -76,3 +76,26 @@ console.log('xxl-result of iterator is equal to object:', ge[Symbol.iterator]() 
 // Object [Generator] {}
 // { value: 'gene00', done: false }
 // xxl-result of iterator is equal to object: true
+
+// change function behaviors from outside
+function* loopFun() {
+  for (let i = 0; true; i ++) {
+    let reset = yield i;
+    if (reset) { i = -1;}
+  }
+}
+const loop = loopFun();
+console.log(loop.next());
+console.log(loop.next());
+console.log(loop.next());
+console.log(loop.next(true));
+console.log(loop.next());
+// output:
+// calling next() with param true, meaning setting the return value of last yield to true, that's reset = true in this case,
+// so i is reset to -1, and then increase to 0, then run yield again, that's why the output value is 0.
+// { value: 0, done: false }
+// { value: 1, done: false }
+// { value: 2, done: false }
+// { value: 3, done: false }
+// { value: 0, done: false }
+// { value: 1, done: false }
