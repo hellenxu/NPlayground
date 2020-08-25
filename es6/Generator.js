@@ -15,3 +15,23 @@ console.log('xxl-4th:', fooIterator.next());
 // xxl-2nd: { value: 'generator', done: false }
 // xxl-3rd: { value: 'finished', done: true }
 // xxl-4th: { value: undefined, done: true }
+
+// example two: flatten arrays
+const arr = [1, 3, [5, 0], [[9, 10, [22]]], 6];
+const flatten = function* (input) {
+  const len = input.length;
+  for (let i = 0; i < len; i++) {
+    const item = input[i];
+    if (typeof item !== "number") {
+      yield* flatten(item);
+    } else {
+      yield item;
+    }
+  }
+};
+
+const result = [];
+for( let item of flatten(arr)) {
+  result.push(item);
+}
+console.log(result);
