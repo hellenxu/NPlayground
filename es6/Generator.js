@@ -51,3 +51,13 @@ const yeildRe = yieldInOtherExpression();
 console.log(yeildRe.next());
 console.log(yeildRe.next());
 console.log(yeildRe.next());
+
+// with Iterator interfaces
+const iterable = {};
+iterable[Symbol.iterator] = function* () {
+  yield 1;
+  yield 2;
+  yield 3;
+  yield 5;
+};
+console.log([...iterable]); // use operator ... to replace next
