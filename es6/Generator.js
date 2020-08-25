@@ -61,3 +61,18 @@ iterable[Symbol.iterator] = function* () {
   yield 5;
 };
 console.log([...iterable]); // use operator ... to replace next
+// output: [ 1, 2, 3, 5 ]
+
+
+// with Symbol.iterator example two
+function* gene(){
+  yield 'gene00'
+}
+const ge = gene();
+console.log(ge[Symbol.iterator]());
+console.log(ge[Symbol.iterator]().next());
+console.log('xxl-result of iterator is equal to object:', ge[Symbol.iterator]() === ge);
+// output of above:
+// Object [Generator] {}
+// { value: 'gene00', done: false }
+// xxl-result of iterator is equal to object: true
