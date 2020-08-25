@@ -36,3 +36,18 @@ for( let item of flatten(arr)) {
 }
 console.log(result);
 // output: [ 1, 3, 5, 0, 9, 10, 22, 6 ]
+
+// example three: need () if using yield in an expression;
+function* yieldInOtherExpression() {
+  console.log('Hello' + (yield) );
+//   console.log('Hello' + yield );
+//                         ^^^^^
+//
+//   SyntaxError: Unexpected identifier
+  console.log('Generator', yield 123);
+}
+
+const yeildRe = yieldInOtherExpression();
+console.log(yeildRe.next());
+console.log(yeildRe.next());
+console.log(yeildRe.next());
