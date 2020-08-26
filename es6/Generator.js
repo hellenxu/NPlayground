@@ -95,7 +95,7 @@ console.log(loop.next(true));
 console.log(loop.next());
 console.log(loop.next());
 console.log(loop.next());
-// output:
+// output 1:
 // calling next() with param true, meaning setting the return value of last yield to true, that's reset = true in this case,
 // so i is reset to -1, and then increase to 0, then run yield again, that's why the output value is 0.
 // { value: 0, done: false }
@@ -103,4 +103,20 @@ console.log(loop.next());
 // { value: 2, done: false }
 // { value: 3, done: false }
 // { value: 0, done: false }
+// { value: 1, done: false }
+
+// output 2:
+// from the output, we can tell that calling next() with param means the returning value of last yield expression.
+// { value: 0, done: false }
+// xxl-reset:  undefined 0
+// { value: 1, done: false }
+// xxl-second:  undefined 0
+// { value: 1, done: false }
+// xxl-reset:  true 1
+// { value: 2, done: false }
+// xxl-second:  undefined 1
+// { value: 0, done: false }
+// xxl-reset:  undefined 0
+// { value: 1, done: false }
+// xxl-second:  undefined 0
 // { value: 1, done: false }
