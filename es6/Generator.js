@@ -180,3 +180,20 @@ console.log('=== use for of to replace next ===')
 for (let item of foo2()) {
   console.log(item);
 }
+
+// use generator function to implement fibonacci
+function* fibonacci() {
+  let [prev, curr] = [0, 1];
+  for(;;) {
+    yield curr;
+    [prev, curr] = [curr, prev + curr];
+  }
+}
+
+console.log('=== fibonacci ===')
+let fibRe = ''
+for (let i of fibonacci()) {
+  if(i > 600) break;
+  fibRe = `${fibRe} ${i}`;
+}
+console.log(fibRe);
