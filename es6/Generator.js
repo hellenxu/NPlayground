@@ -106,7 +106,9 @@ console.log(loop.next());
 // { value: 1, done: false }
 
 // output 2:
-// from the output, we can tell that calling next() with param means the returning value of last yield expression.
+// from the output, we can tell that
+// 1,) calling next() with param means the returning value of last yield expression.
+// 2,) yield: if no return keyword, then the value of yield expression will be undefined.
 // { value: 0, done: false }
 // xxl-reset:  undefined 0
 // { value: 1, done: false }
@@ -120,3 +122,25 @@ console.log(loop.next());
 // { value: 1, done: false }
 // xxl-second:  undefined 0
 // { value: 1, done: false }
+
+
+// next() with param example two
+function* sumOfThree(x) {
+  const y = 2 * (yield (x + 1));
+  const z = yield (y / 3);
+  console.log(`xxl-z-y-x:`, z, y, x);
+  return (x + y + z);
+}
+console.log('=========')
+const ff = sumOfThree(5);
+console.log('example one: x = 5; z = 10; y = NaN')
+console.log(ff.next()); // {value: 6, done: false}
+console.log(ff.next()); // {value: NaN, done: false}
+console.log(ff.next(10)); // {value: NaN, done: true}
+
+console.log('example two: x = 5; z = 10; y = 30')
+const f2 = sumOfThree(5);
+console.log(f2.next()); // {value: 6, done: false}
+console.log(f2.next(15)); // {value: 10, done: false}
+console.log(f2.next(10)); // {value: 45, done: true}
+
