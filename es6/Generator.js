@@ -238,3 +238,5 @@ function* numbers() {
 }
 
 console.log(`...:`, [...numbers()]);
+const [x, y] = numbers();
+console.log(`deconstruction: [ ${x}, ${y} ]`);
