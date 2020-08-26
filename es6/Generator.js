@@ -241,3 +241,6 @@ console.log(`...:`, [...numbers()]);
 const [x, y, z] = numbers();
 console.log(`deconstruction: [ ${x}, ${y}, ${z} ]`);
 console.log('Array.from: ', Array.from(numbers()));
+for (let i of numbers()) {
+  console.log(i);
+}
