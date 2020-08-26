@@ -238,5 +238,6 @@ function* numbers() {
 }
 
 console.log(`...:`, [...numbers()]);
-const [x, y] = numbers();
-console.log(`deconstruction: [ ${x}, ${y} ]`);
+const [x, y, z] = numbers();
+console.log(`deconstruction: [ ${x}, ${y}, ${z} ]`);
+console.log('Array.from: ', Array.from(numbers()));
