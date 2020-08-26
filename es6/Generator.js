@@ -109,6 +109,8 @@ console.log(loop.next());
 // from the output, we can tell that
 // 1,) calling next() with param means the returning value of last yield expression.
 // 2,) yield: if no return keyword, then the value of yield expression will be undefined.
+// 3,) it's useless to pass param when calling next() for the first time as it means the returning value of last yield expression,
+// but there is no yield expression in this case.
 // { value: 0, done: false }
 // xxl-reset:  undefined 0
 // { value: 1, done: false }
@@ -144,3 +146,22 @@ console.log(f2.next()); // {value: 6, done: false}
 console.log(f2.next(15)); // {value: 10, done: false}
 console.log(f2.next(10)); // {value: 45, done: true}
 
+// next() with param example three: no return value
+function* consumer() {
+  console.log('Started');
+  console.log(`1. ${yield }`);
+  console.log(`2. ${yield }`);
+}
+
+console.log('=========')
+const c = consumer();
+console.log(c.next());
+console.log(c.next('a'));
+console.log(c.next('bb'));
+// output:
+// Started
+// { value: undefined, done: false }
+// 1. a
+// { value: undefined, done: false }
+// 2. bb
+// { value: undefined, done: true }
