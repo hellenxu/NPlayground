@@ -165,3 +165,18 @@ console.log(c.next('bb'));
 // { value: undefined, done: false }
 // 2. bb
 // { value: undefined, done: true }
+
+// use for ... of to iterate the iterator created by Generator functions
+// for ... of will stop if done is true
+function* foo2() {
+  yield 1;
+  yield 2;
+  yield 3;
+  yield 4;
+  yield 5;
+  return 6;
+}
+console.log('=== use for of to replace next ===')
+for (let item of foo2()) {
+  console.log(item);
+}
