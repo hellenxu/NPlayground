@@ -197,3 +197,30 @@ for (let i of fibonacci()) {
   fibRe = `${fibRe} ${i}`;
 }
 console.log(fibRe);
+
+//two methods to make sure js object has the ability to be iterated
+//1,) pass object to a generator function;
+//2,) pass a generator function to Symbol.iterator of an object.
+console.log('=== enpower objects to be iterated ===');
+function* objectEntries(obj) {
+  const keys = Object.keys(obj);
+  for (let key of keys) {
+    yield [key, obj[key]];
+  }
+}
+console.log('1,) method one: pass objects to a generator function.')
+const john = {name: 'John Smith', age: 30, occupation: 'dentist'};
+for (let [key, value] of objectEntries(john)) {
+  console.log(`${key}: ${value}`);
+}
+console.log('2,) method two: pass a generator function to Symbol.iterator.')
+function* objectEntries2() {
+  const keys = Object.keys(this);
+  for (let key of keys) {
+    yield [key, this[key]];
+  }
+}
+john[Symbol.iterator] = objectEntries2; // attention: it's function name, not calling functions.
+for (let [key, value] of john) {
+  console.log(`${key}: ${value}`);
+}
