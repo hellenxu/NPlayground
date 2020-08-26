@@ -47,10 +47,10 @@ function* yieldInOtherExpression() {
   console.log('Generator', yield 123);
 }
 
-const yeildRe = yieldInOtherExpression();
-console.log(yeildRe.next());
-console.log(yeildRe.next());
-console.log(yeildRe.next());
+const yieldRe = yieldInOtherExpression();
+console.log(yieldRe.next());
+console.log(yieldRe.next());
+console.log(yieldRe.next());
 
 // with Iterator interfaces
 const iterable = {};
@@ -81,6 +81,9 @@ console.log('xxl-result of iterator is equal to object:', ge[Symbol.iterator]() 
 function* loopFun() {
   for (let i = 0; true; i ++) {
     let reset = yield i;
+    console.log(`xxl-reset: `, reset, i)
+    let second = yield i + 1;
+    console.log(`xxl-second: `, second, i)
     if (reset) { i = -1;}
   }
 }
@@ -89,6 +92,8 @@ console.log(loop.next());
 console.log(loop.next());
 console.log(loop.next());
 console.log(loop.next(true));
+console.log(loop.next());
+console.log(loop.next());
 console.log(loop.next());
 // output:
 // calling next() with param true, meaning setting the return value of last yield to true, that's reset = true in this case,
