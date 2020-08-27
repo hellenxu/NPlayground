@@ -244,3 +244,25 @@ console.log('Array.from: ', Array.from(numbers()));
 for (let i of numbers()) {
   console.log(i);
 }
+
+// Generator.prototype.throw():
+// iterators created by Generator funcs, have a throw method,
+// which is able to throw exception caught in generator functions
+
+const throwGen = function* () {
+  try {
+    yield ;
+  }catch (e) {
+    console.log('caught exception inside generator functions: ', e);
+  }
+};
+
+const wrap = throwGen();
+wrap.next();
+
+try {
+  wrap.throw('a');
+  wrap.throw('b');
+}catch (e) {
+  console.log('exception outside generator functions: ', e);
+}
