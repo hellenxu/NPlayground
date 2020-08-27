@@ -261,8 +261,13 @@ const wrap = throwGen();
 wrap.next();
 
 try {
-  wrap.throw('a');
-  wrap.throw('b');
+  wrap.throw(new Error('a'));
+  wrap.throw(new Error('b'));
 }catch (e) {
   console.log('exception outside generator functions: ', e);
 }
+// output:
+// caught exception inside generator functions:  a
+// exception outside generator functions:  b
+
+
