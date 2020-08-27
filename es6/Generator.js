@@ -271,3 +271,24 @@ try {
 // exception outside generator functions:  b
 
 
+// Generator.prototype.throw() vs. throw command
+// exception thrown by throw command, is only caught by try...catch block outside generator functions
+const throwGen1 = function* () {
+  try {
+    yield ;
+  }catch (e) {
+    if (e !== 'a0') throw e;
+    console.log('exception inside generator functions: ', e);
+  }
+}
+const wrap1 = throwGen1();
+wrap1.next();
+try {
+  throw new Error('a0');
+  throw new Error('b0');
+}catch (e) {
+  console.log('exception outside generator functions: ', e);
+}
+// output: error b0 wouldn't be caught because code execution is done.
+// exception outside generator functions:  Error: a0
+
