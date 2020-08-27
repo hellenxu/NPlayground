@@ -292,3 +292,16 @@ try {
 // output: error b0 wouldn't be caught because code execution is done.
 // exception outside generator functions:  Error: a0
 
+
+// exception: throw exception without try catch inside and outside generator functions
+const normalGen = function* () {
+  yield console.log('hello');
+  yield console.log(111);
+};
+const wrap2 = normalGen();
+wrap2.next();
+wrap2.throw();
+// output: uncaught undefined as yield return undefined
+//  yield console.log('hello');
+//   ^
+// undefined
