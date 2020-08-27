@@ -300,7 +300,7 @@ const normalGen = function* () {
 };
 const throw2 = normalGen();
 throw2.next();
-throw2.throw();
+// throw2.throw(); // comment for running
 // output: uncaught undefined as yield return undefined
 //  yield console.log('hello');
 //   ^
@@ -309,8 +309,31 @@ throw2.throw();
 
 // needs to call next() at least one time before calling Generator.prototype.throw()
 const throw3 = throwGen();
-throw3.throw('throw3');
+// throw3.throw('throw3'); // comment for running
 // output: uncaught undefined
 // yield console.log('hello');
 // ^
-// undefined
+// throw3
+
+
+// throw() will trigger the next()
+console.log('==========')
+const throwGen4 = function* () {
+  try {
+    yield console.log('step1');
+  } catch (e) {
+    console.log('exception inside generator function: ', e);
+  }
+  yield console.log('step2');
+  yield console.log('step3');
+}
+
+const throw4 = throwGen4();
+throw4.next();
+throw4.throw('4');
+throw4.next();
+// output: with try catch inside generator functions, other yields wouldn't be broken.
+// step1
+// exception inside generator function:  4
+// step2
+// step3
