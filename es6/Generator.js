@@ -281,8 +281,8 @@ const throwGen1 = function* () {
     console.log('exception inside generator functions: ', e);
   }
 }
-const wrap1 = throwGen1();
-wrap1.next();
+const throw1 = throwGen1();
+throw1.next();
 try {
   throw new Error('a0');
   throw new Error('b0');
@@ -298,10 +298,19 @@ const normalGen = function* () {
   yield console.log('hello');
   yield console.log(111);
 };
-const wrap2 = normalGen();
-wrap2.next();
-wrap2.throw();
+const throw2 = normalGen();
+throw2.next();
+throw2.throw();
 // output: uncaught undefined as yield return undefined
 //  yield console.log('hello');
 //   ^
+// undefined
+
+
+// needs to call next() at least one time before calling Generator.prototype.throw()
+const throw3 = throwGen();
+throw3.throw('throw3');
+// output: uncaught undefined
+// yield console.log('hello');
+// ^
 // undefined
