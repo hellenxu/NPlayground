@@ -393,3 +393,13 @@ function* host() {
 for (let i of host()) {
   console.log(i);
 }
+
+
+// yield* with array
+function* yieldArray() {
+  yield* [1, 3, 5]; // as array support iterating, here this array is equal to an iterator.
+}
+const arrayGen = yieldArray();
+console.log(arrayGen.next());
+// output:
+// { value: 1, done: false }
