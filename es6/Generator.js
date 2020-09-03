@@ -371,3 +371,25 @@ console.log(returnFinallyGen.next());
 // { value: 2, done: false }
 // { value: 3, done: false }
 // { value: 5, done: true }
+
+
+// nested generator functions
+// 1,) if inside a generator function, calling another generator function, then have to iterate the called generator func;
+// otherwise, wouldn't get output from the called generator function. e.g. in the case below, a, and b wouldn't print.
+// 2,) yield* is used to provide a convenient way to do that.
+
+console.log('=== nested generator functions ===')
+function* nested1() {
+  yield 'a';
+  yield 'b';
+}
+
+function* host() {
+  yield 'x';
+  yield* nested1();
+  yield 'y';
+}
+
+for (let i of host()) {
+  console.log(i);
+}
