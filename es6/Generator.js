@@ -337,3 +337,10 @@ throw4.next();
 // exception inside generator function:  4
 // step2
 // step3
+
+
+// Generator.prototype.return()
+const returnGen = normalGen();
+console.log(returnGen.next());
+console.log(returnGen.return('return'));
+console.log(returnGen.next());
