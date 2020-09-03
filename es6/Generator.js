@@ -344,3 +344,30 @@ const returnGen = normalGen();
 console.log(returnGen.next());
 console.log(returnGen.return('return'));
 console.log(returnGen.next());
+// output:
+// { value: undefined, done: false }
+// { value: 'return', done: true }
+// { value: undefined, done: true }
+
+
+// return() with try...finally inside generator functions
+function* returnTryFinally() {
+  yield 1;
+  try {
+    yield 2;
+  } finally {
+    yield 3;
+  }
+  yield 4;
+}
+
+const returnFinallyGen = returnTryFinally();
+console.log(returnFinallyGen.next());
+console.log(returnFinallyGen.next());
+console.log(returnFinallyGen.return(5));
+console.log(returnFinallyGen.next());
+// output:
+// { value: 1, done: false }
+// { value: 2, done: false }
+// { value: 3, done: false }
+// { value: 5, done: true }
