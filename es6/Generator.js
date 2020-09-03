@@ -377,6 +377,7 @@ console.log(returnFinallyGen.next());
 // 1,) if inside a generator function, calling another generator function, then have to iterate the called generator func;
 // otherwise, wouldn't get output from the called generator function. e.g. in the case below, a, and b wouldn't print.
 // 2,) yield* is used to provide a convenient way to do that.
+// 3,) yield* can be used with any data structs implements Iterator, e.g.: array, string
 
 console.log('=== nested generator functions ===')
 function* nested1() {
@@ -403,3 +404,15 @@ const arrayGen = yieldArray();
 console.log(arrayGen.next());
 // output:
 // { value: 1, done: false }
+
+// yield* with string
+function* yieldString() {
+  yield 'hi';
+  yield* 'yuhjnm';
+}
+const stringGen = yieldString();
+console.log(stringGen.next());
+console.log(stringGen.next());
+// output:
+// { value: 'hi', done: false }
+// { value: 'y', done: false }
