@@ -416,3 +416,17 @@ console.log(stringGen.next());
 // output:
 // { value: 'hi', done: false }
 // { value: 'y', done: false }
+
+
+// ... with yield* example
+function* iterateTree(input) {
+  if (Array.isArray(input)) {
+    for (let i = 0; i < input.length; i ++) {
+      yield* iterateTree(input[i])
+    }
+  } else  {
+    yield input
+  }
+}
+
+console.log([...iterateTree(['a', ['2', '10'], 'c', ['d', 'e']])]);
