@@ -485,3 +485,28 @@ console.log(objGG.hello());
 // output:
 // xxl-objGG-instanceof-gg:  true
 // hello world
+
+
+// a way to make sure calling this and next at the same time
+function* thisGen() {
+  this.aa = 1;
+  yield this.bb = 2;
+  yield this.cc = 3;
+}
+const thisObj = {};
+const thisG = thisGen.call(thisObj);
+console.log(thisG.next());
+console.log(thisG.next());
+console.log(thisG.next());
+
+console.log(thisObj.aa);
+console.log(thisObj.bb);
+console.log(thisObj.cc);
+
+// output:
+// { value: 2, done: false }
+// { value: 3, done: false }
+// { value: undefined, done: true }
+// 1
+// 2
+// 3
