@@ -487,7 +487,7 @@ console.log(objGG.hello());
 // hello world
 
 
-// a way to make sure calling this and next at the same time
+// a way to make sure calling this and next at the same time using two different objects
 function* thisGen() {
   this.aa = 1;
   yield this.bb = 2;
@@ -510,3 +510,14 @@ console.log(thisObj.cc);
 // 1
 // 2
 // 3
+
+
+// another example: capable of calling next and this at the same time with one object
+const thisG2 = thisGen.call(thisGen.prototype);
+console.log(thisG2.next());
+console.log(thisG2.next());
+console.log(thisG2.next());
+console.log(thisG2.aa);
+console.log(thisG2.bb);
+console.log(thisG2.cc);
+//output: the same as above
