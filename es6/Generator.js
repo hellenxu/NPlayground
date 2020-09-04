@@ -464,3 +464,12 @@ const flatTree = [...flattenTree(tree)];
 console.log("xxl-flatten-tree: ", flatTree);
 // output:
 // xxl-flatten-tree:  [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]
+
+
+// generator functions in object
+const objGen = {
+  * genMethod() {
+    yield 1
+  }
+}
+console.log(objGen.genMethod().next());
