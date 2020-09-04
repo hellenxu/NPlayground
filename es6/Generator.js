@@ -517,7 +517,20 @@ const thisG2 = thisGen.call(thisGen.prototype);
 console.log(thisG2.next());
 console.log(thisG2.next());
 console.log(thisG2.next());
+
 console.log(thisG2.aa);
 console.log(thisG2.bb);
 console.log(thisG2.cc);
 //output: the same as above
+
+function GenConstructor() {
+  return thisGen.call(thisGen.prototype);
+}
+const thisGe3 = new GenConstructor();
+console.log(thisGe3.next());
+console.log(thisGe3.next());
+console.log(thisGe3.next());
+
+console.log(thisGe3.aa);
+console.log(thisGe3.bb);
+console.log(thisGe3.cc);
