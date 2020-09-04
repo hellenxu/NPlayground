@@ -430,3 +430,37 @@ function* iterateTree(input) {
 }
 
 console.log([...iterateTree(['a', ['2', '10'], 'c', ['d', 'e']])]);
+
+// another example of tree iteration
+function Tree(left, current, right) {
+  this.left = left;
+  this.current = current;
+  this.right = right;
+}
+
+function* flattenTree(tree) {
+  if (tree) {
+    yield* flattenTree(tree.left);
+    yield tree.current;
+    yield* flattenTree(tree.right);
+  }
+}
+
+function plantTree(array) {
+  if (array.length < 1) {
+    throw new Error("error input: array should not be empty");
+  }
+  if (array.length === 1) {
+    return new Tree(null, array[0], null);
+  }
+  if (array.length === 2) {
+    return new Tree(plantTree(array[0]), array[1], null)
+  }
+  return new Tree(plantTree(array[0]), array[1], plantTree(array[2]));
+}
+
+const tree = plantTree([[['a'], 'b', ['c']], 'd', [['e'], 'f', 'g']]);
+const flatTree = [...flattenTree(tree)];
+console.log("xxl-flatten-tree: ", flatTree);
+// output:
+// xxl-flatten-tree:  [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]
