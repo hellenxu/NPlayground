@@ -473,3 +473,15 @@ const objGen = {
   }
 }
 console.log(objGen.genMethod().next());
+
+//A generator function returns an iterator, which is an instance and inherits methods of prototype of this generator function
+function* gg() {}
+gg.prototype.hello = function() {
+  return "hello world"
+};
+const objGG = gg();
+console.log('xxl-objGG-instanceof-gg: ', objGG instanceof gg);
+console.log(objGG.hello());
+// output:
+// xxl-objGG-instanceof-gg:  true
+// hello world
