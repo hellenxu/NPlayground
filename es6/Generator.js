@@ -534,3 +534,17 @@ console.log(thisGe3.next());
 console.log(thisGe3.aa);
 console.log(thisGe3.bb);
 console.log(thisGe3.cc);
+
+
+// a simple example of state machine
+const clock = function* () {
+  while (true) {
+    console.log('tt');
+    yield ;
+    console.log('toc');
+    yield ;
+  }
+}();
+clock.next();
+clock.next();
+clock.next();
