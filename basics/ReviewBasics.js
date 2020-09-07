@@ -64,6 +64,14 @@ const foo = Object.freeze({})
 foo.id = '123'
 console.log(`xxl-id: ${foo.id}`)
 
+
+//notes of global
+/*
+* browser: top level object is window, but node and web worker doesn't have it;
+* browser && web worker: self is pointed to top level object, but node doesn't have it;
+* node: global is the top level object, but it doesn't exist in other environment
+* that why in ES2020, globalThis is introduced.
+* */
 global.a = 1
 console.log(`xxl-global-a: ${global.a}`)
 a = 2
