@@ -57,3 +57,9 @@ function f2() {
 //   }
 //   f2()
 // }())
+
+
+// object freeze example
+const foo = Object.freeze({})
+foo.id = '123'
+console.log(`xxl-id: ${foo.id}`)
