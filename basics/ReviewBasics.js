@@ -28,3 +28,32 @@ function f1() {
   console.log(`${n}`)
 }
 f1()
+
+function f2() {
+  console.log(`xxl-outside`);
+}
+
+(function() {
+  if (false) {
+    function f2() { console.log(`xxl-inside`) }
+  }
+  f2()
+}());
+// output:
+// /Users/xxl/code/NPlayground/basics/ReviewBasics.js:40
+// f2()
+// ^
+//
+// TypeError: f2 is not a function
+// at /Users/xxl/code/NPlayground/basics/ReviewBasics.js:40:3
+// at Object.<anonymous> (/Users/xxl/code/NPlayground/basics/ReviewBasics.js:41:2)
+
+// Reason: the definition of f2 will be moved up in ES6 environment, and became the followings:
+// function f2() { console.log(`xxl-outside`) }
+// (function() {
+//   var f2 = undefined
+//   if (false) {
+//     function f2() { console.log(`xxl-inside`) }
+//   }
+//   f2()
+// }())
