@@ -37,7 +37,7 @@ function f2() {
   if (false) {
     function f2() { console.log(`xxl-inside`) }
   }
-  f2()
+  // f2()
 }());
 // output:
 // /Users/xxl/code/NPlayground/basics/ReviewBasics.js:40
@@ -63,3 +63,8 @@ function f2() {
 const foo = Object.freeze({})
 foo.id = '123'
 console.log(`xxl-id: ${foo.id}`)
+
+global.a = 1
+console.log(`xxl-global-a: ${global.a}`)
+a = 2
+console.log(`xxl-global-a: ${global.a}`)
