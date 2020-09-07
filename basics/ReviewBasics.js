@@ -76,3 +76,11 @@ global.a = 1
 console.log(`xxl-global-a: ${global.a}`)
 a = 2
 console.log(`xxl-global-a: ${global.a}`)
+
+
+//destructuring examples
+let [head, ...tail] = [1,3,5,7]
+console.log(`xxl-head: ${head}; tail: ${tail}`)
+
+const [x, y, ...z] = ['a']
+console.log(`xxl-x: ${x}; y: ${y}; z: ${z}`)
