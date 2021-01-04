@@ -84,3 +84,18 @@ console.log(`xxl-head: ${head}; tail: ${tail}`)
 
 const [x, y, ...z] = ['a']
 console.log(`xxl-x: ${x}; y: ${y}; z: ${z}`)
+
+let { bar,foo1 } = {foo1: 'aaa', bar: 'bbb'}
+console.log(`xxl-foo: ${foo1}; bar: ${bar}`)
+
+let { log, sin, cos } = Math
+console.log(`xxl-math-log: ${log(10)}; sin: ${sin(1)}; cos: ${cos(0.5)}`)
+
+let { log: log1 } = console
+log1('hiii...')
+
+const obj00 = {}
+const obj11 = { foo: 'bzzz~' }
+Object.setPrototypeOf(obj00, obj11)
+const { foo: f0 } = obj11
+console.log(`xxl-object-inherit: ${f0}`)
