@@ -99,3 +99,17 @@ const obj11 = { foo: 'bzzz~' }
 Object.setPrototypeOf(obj00, obj11)
 const { foo: f0 } = obj11
 console.log(`xxl-object-inherit: ${f0}`)
+
+const { x: x1 = 3 } = { x: undefined}
+const { y: y1 = 3 } = { y: null}
+console.log(`xxl-x1: ${x1}; y1: ${y1}`)
+
+const ary = [1, 2, 3]
+
+// 使用in会输出数组的index，而使用of则会输出数组的value
+for(let i in ary){
+  console.log(i)
+}
+
+let x2
+({ x2 } = { x2: 0})
