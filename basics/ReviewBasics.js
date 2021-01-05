@@ -124,3 +124,9 @@ const { toString: s } = 2994
 console.log(`xxl-num-des: ${ s === Number.prototype.toString}; s = ${s}`)
 const { toString: s1 } = true
 console.log(`xxl-bool-des: ${ s1 === Boolean.prototype.toString}; s = ${s1}`)
+
+function mmove({x, y} = { x: 0, y: 0 }) {
+  return [x, y]
+}
+console.log(`xxl-func-des: ${mmove()}`)
+console.log(`xxl-func-des1: ${mmove({x: 10, y: 20})}`)
