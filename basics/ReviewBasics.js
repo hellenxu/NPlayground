@@ -119,3 +119,8 @@ console.log(`xxl-str: a = ${a1}; b = ${b1}; c = ${c1}; d = ${d1}; e = ${e1}`)
 
 const { length: len0 } = 'hello'
 console.log(`xxl-len: ${len0}`)
+
+const { toString: s } = 2994
+console.log(`xxl-num-des: ${ s === Number.prototype.toString}; s = ${s}`)
+const { toString: s1 } = true
+console.log(`xxl-bool-des: ${ s1 === Boolean.prototype.toString}; s = ${s1}`)
