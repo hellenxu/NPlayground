@@ -113,3 +113,9 @@ for(let i in ary){
 
 let x2
 ({ x2 } = { x2: 0})
+
+let [a1, b1, c1, d1, e1] = 'hello'
+console.log(`xxl-str: a = ${a1}; b = ${b1}; c = ${c1}; d = ${d1}; e = ${e1}`)
+
+const { length: len0 } = 'hello'
+console.log(`xxl-len: ${len0}`)
