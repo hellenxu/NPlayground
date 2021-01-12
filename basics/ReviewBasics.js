@@ -136,3 +136,16 @@ console.log(`${'\172' === 'z'}`)
 console.log(`${'\x7A' === 'z'}`)
 console.log(`${'\u007A' === 'z'}`)
 console.log(`${"\u{7A}" === 'z'}`)
+
+const txt = String.fromCodePoint(0x20bb7)
+for (let i = 0; i < txt.length; i ++) {
+  console.log(`for: ${txt[i]}`)
+}
+
+for (let i of txt) {
+  console.log(`for...of: ${i}`)
+}
+// Results of above
+// for: �
+// for: �
+// for...of: 𠮷
