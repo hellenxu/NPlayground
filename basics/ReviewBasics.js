@@ -152,4 +152,7 @@ for (let i of txt) {
 
 console.log(`xxl-special-unicode: \u005c`)
 console.log(`xxl-special-unicode: ${JSON.stringify('\u005c')}`)
-console.log(`xxl-special-unicode: ${JSON.parse('\u005c')}`)
+// console.log(`xxl-special-unicode: ${JSON.parse('\u005c')}`)
+
+console.log(`xxl-stirngify: ${JSON.stringify('\u{d834}')}`)
+console.log(`xxl-stirngify: ${JSON.stringify('\ud834\udf06')}`)
