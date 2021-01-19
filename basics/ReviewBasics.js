@@ -158,6 +158,10 @@ console.log(`xxl-stirngify: ${JSON.stringify('\u{d834}')}`)
 console.log(`xxl-stirngify: ${JSON.stringify('\ud834\udf06')}`)
 
 function compile(template) {
+// have done 2 things:
+// 1,) replace script tags;
+// 2,) return an appending function for eval to verify and execute
+
   const evalExpr = /<%=(.+?)%>/g
   const expr = /<%([\s\S]+?)%>/g
   template = template
@@ -165,19 +169,16 @@ function compile(template) {
     .replace(expr, '`); \n $1 \n echo(`')
   template = 'echo(`' + template + '`);'
 
-  let script =
-    `(function parse(data){
+  return `(function parse(data){
       let output = ""
       
       function echo(html) {
         output += html
       }
       
-      ${ template }
+      ${template}
       return output
     })`
-
-  return script
 }
 
 let template = `
