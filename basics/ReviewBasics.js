@@ -156,3 +156,37 @@ console.log(`xxl-special-unicode: ${JSON.stringify('\u005c')}`)
 
 console.log(`xxl-stirngify: ${JSON.stringify('\u{d834}')}`)
 console.log(`xxl-stirngify: ${JSON.stringify('\ud834\udf06')}`)
+
+function compile(template) {
+  const evalExpr = /<%=(.+?)%>/g
+  const expr = /<%([\s\S]+?)%>/g
+  template = template
+    .replace(evalExpr, '`); \n echo( $1 ); \n echo(`')
+    .replace(expr, '`); \n $1 \n echo(`')
+  template = 'echo(`' + template + '`);'
+
+  let script =
+    `(function parse(data){
+      let output = ""
+      
+      function echo(html) {
+        output += html
+      }
+      
+      ${ template }
+      return output
+    })`
+
+  return script
+}
+
+let template = `
+<ul>
+<% for(let i = 0; i < data.supplies.length; i++) { %>
+    <li><%= data.supplies[i] %></li>
+<% } %>    
+</ul>
+`
+
+let parse = eval(compile(template))
+console.log(`xxl-template-string: ${parse({ supplies: ["broom", "mop", "cleaner"] })}`)
