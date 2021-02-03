@@ -191,3 +191,9 @@ let template = `
 
 let parse = eval(compile(template))
 console.log(`xxl-template-string: ${parse({ supplies: ["broom", "mop", "cleaner"] })}`)
+
+function tag(input) {
+  console.log(`tag: ${input}`)
+}
+
+tag`hello`
