@@ -192,8 +192,14 @@ let template = `
 let parse = eval(compile(template))
 console.log(`xxl-template-string: ${parse({ supplies: ["broom", "mop", "cleaner"] })}`)
 
-function tag(input) {
+function tag(...input) {
   console.log(`tag: ${input}`)
 }
 
 tag`hello`
+
+const a0 = 5
+const b = 10
+tag`hello ${a0 + b} world ${a0*b}`
+tag(['hello ', ' world ', ''], 15, 50)
+// the above expressions are equal
