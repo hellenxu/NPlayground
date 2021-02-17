@@ -203,3 +203,7 @@ const b = 10
 tag`hello ${a0 + b} world ${a0*b}`
 tag(['hello ', ' world ', ''], 15, 50)
 // the above expressions are equal
+
+console.log(`CharCode: ${String.fromCharCode(0x20BB7)}`)
+console.log(`CodePoint: ${String.fromCodePoint(0x20BB7)}`)
+console.log(`CodePoint11: ${String.fromCodePoint(0x78, 0x1f680, 0x79)}`)
