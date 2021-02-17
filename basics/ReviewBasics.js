@@ -207,3 +207,7 @@ tag(['hello ', ' world ', ''], 15, 50)
 console.log(`CharCode: ${String.fromCharCode(0x20BB7)}`)
 console.log(`CodePoint: ${String.fromCodePoint(0x20BB7)}`)
 console.log(`CodePoint11: ${String.fromCodePoint(0x78, 0x1f680, 0x79)}`)
+
+const expectedResult = "Hello\\n9!"
+console.log(`raw: ${String.raw`Hello\n${3*3}!`}`)
+console.log(`raw: ${String.raw`Hello\n${3*3}!` === expectedResult}`)
